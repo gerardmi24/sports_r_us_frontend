@@ -1,10 +1,7 @@
-import React from 'react'
+import React from 'react';
+import Search from './Search';
 
-export default function NavBar() {
-
-    function search(e) {
-        console.log("Search")
-    }
+export default function NavBar({search, setSearch}) {
 
     function login(e) {
         console.log("Login")
@@ -16,8 +13,8 @@ export default function NavBar() {
 
     return (
         <div className="BtnDiv">
-            Hellooo
-            <button className="SearchBtn" onClick={search} > Search </button>
+            Nav Bar
+            <Search setSearch={setSearch} search={search} />
             <button className="LogBtn" onClick={login} > Login </button>
             <button className="ProfBtn" onClick={profile} > Profile </button>
 
