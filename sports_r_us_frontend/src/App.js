@@ -46,10 +46,18 @@ function App() {
     });
   }, []);
 
+  function deleteFromFav() {
+    console.log("Delete from fav")
+  }
+
+  function addToFav() {
+    console.log("Add to fav")
+  }
+
   return (
     <div className="App">
      <Header search={search} setSearch={setSearch} teams={allTeams} />
-     <DefaultHomePage search={search} currentUser={currentUsername} allSports={allSports} allTeams={allTeams} allFavs={allFavs} />
+     <DefaultHomePage addFav={addToFav} deleteFav={deleteFromFav} search={search} currentUser={currentUsername} allSports={allSports} allTeams={allTeams} allFavs={allFavs} />
     </div>
   );
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function FavSidebar({team}) {
+export default function FavSidebar({sport}) {
     return (
         <div className="FavSideBar">
-            {team.team_name}
+            {sport.sport_name}
         </div>
     )
 }

@@ -2,11 +2,11 @@ import React from 'react';
 import UserSportsList from './UserSportsList';
 import FavSidebar from './FavSidebar'
 
-export default function ProfilePage({allFavs, allTeams}) {
+export default function ProfilePage({deleteFav, allFavs, allSports}) {
 
-    const chooseFavs = allTeams.map((team => <FavSidebar key={team.id} team={team} />))
+    const chooseFavs = allSports.map((sport => <FavSidebar key={sport.id} sport={sport} />))
 
-    const renderFavs = allFavs.map((fav => <UserSportsList key={fav.id} fav={fav} />))
+    const renderFavs = allFavs.map((fav => <UserSportsList key={fav.id} deleteFav={deleteFav} fav={fav} />))
 
 
     return (
