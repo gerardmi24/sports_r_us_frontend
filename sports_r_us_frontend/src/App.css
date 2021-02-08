@@ -16,6 +16,12 @@
   position:relative; top:10px; margin-left: 200px;
 }
 
+.FavSideBar {
+  background-color: red;
+  position:relative; bottom:320px; margin-left: 10px;
+  width: 40%
+}
+
 .BtnDiv {
   /* display: flex; */
   position:relative;
