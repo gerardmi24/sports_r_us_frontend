@@ -1,11 +1,11 @@
 import React from 'react';
 import CommentsForm from './CommentsForm';
 
-export default function UserSportsList() {
+export default function UserSportsList({fav}) {
     return (
         <div>
-            UserSportsList
-        <CommentsForm />
+            {fav}
+            <CommentsForm />
         </div>
     )
 }
