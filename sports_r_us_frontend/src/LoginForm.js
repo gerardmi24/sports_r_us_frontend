@@ -3,28 +3,33 @@ import React, {useState} from 'react'
 export default function LoginForm({currentUsername}) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    console.log(currentUsername.username)
-
-    function handleSubmit(e){
-        e.preventDefault()
-        if(currentUsername !== "AnnieZ" || currentUsername !== "EKim123" || currentUsername !== "GMist24"){
-            return alert("This User does not exist, please try again")
-        }
-        else{
-            setUsername("")
-            setPassword("")
-        }
-        // console.log("Login", name, password)
-    }
 
     function changeUsername(e) {
         setUsername(e.target.value)
+        console.log(username)
     }
-
+    
     function changePW(e) {
         setPassword(e.target.value)
     }
     
+    function handleSubmit(e){
+        e.preventDefault()
+            if(username === "AnnieZ"){
+            }
+            if (username === "EKim123"){
+                setUsername("")
+                setPassword("")
+            }
+            if (username === "GMist24"){
+                setUsername("")
+                setPassword("")
+            }
+            else{
+                return alert("This User does not exist, please try again")
+            }
+    }
+
     return (
         <div>
             <form className="login-form" onSubmit={handleSubmit}>
