@@ -17,6 +17,7 @@ export default function NavBar({profile, signIn, currentUsername, search, setSea
             <button className="LogBtn" onClick={login} > {clicked ? "Login" : "Welcome!"} </button>
             <button className="ProfBtn" onClick={profile} > Profile </button>
             {clicked ? null : <LoginForm signIn={signIn} currentUsername={currentUsername}/>}
+            
         </div>
     )
 }

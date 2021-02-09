@@ -4,17 +4,20 @@ import Header from './Header';
 import DefaultHomePage from './DefaultHomePage';
 
 function App() {
-  const sports = "http://localhost:3000/sports"
-  const users = "http://localhost:3000/users"
-  const favorites = "http://localhost:3000/favorites"
-  const teams = "http://localhost:3000/teams"
+  const sports = "http://localhost:3000/sports/"
+  const users = "http://localhost:3000/users/"
+  const favorites = "http://localhost:3000/favorites/"
+  const teams = "http://localhost:3000/teams/"
   const [search, setSearch] = useState("")
   const [allSports, setAllSports] = useState([])
   const [allFavs, setAllFavs] = useState([])
   const [allTeams, setAllTeams] = useState([])
   const [currentUsername, setCurrentUsername] = useState("")
   const [profileClicked, setProfileClicked] = useState("false")
-  const [signedIn, setSignedIn] = useState("false")
+  const [signedIn, setSignedIn] = useState("")
+  // const [eric, setEric] = useState({})
+  // const [gerard, setGerard] = useState({})
+  // const [annie, setAnnie] = useState({})
   // console.log(currentUsername)
 
   useEffect(() => {
@@ -30,6 +33,11 @@ function App() {
     .then(r => r.json())
     .then((users) => {
       setCurrentUsername(users)
+      // .then((users) => users.map((user) => {
+      //   setEric(user[0]),
+      //   setGerard(user[1]),
+      //   setAnnie(user[2])
+      // })
     });
   }, []);
 
@@ -50,27 +58,29 @@ function App() {
   }, []);
 
   function deleteFromFav() {
-    console.log("Delete from fav")
+    // console.log("Delete from fav")
   }
 
-  function addToFav() {
-    console.log("Add to fav")
+  function addToFav(newFav) {
+    // console.log("New fav", newFav)
+    setAllFavs([...allFavs, newFav])
+    // console.log("Updated Favs", allFavs)
   }
 
   function userPage(e) {
     setProfileClicked(!profileClicked)
-    console.log("Profile", profileClicked)
+    // console.log("Profile", profileClicked)
   }
 
   function changeSignIn(e) {
     setSignedIn(!signedIn)
-    console.log("Signed In", signedIn)
+    // console.log("Signed In", signedIn)
   }
 
   return (
     <div className="App">
      <Header signIn={changeSignIn} profile={userPage} search={search} currentUsername={currentUsername} setSearch={setSearch} teams={allTeams} />
-     <DefaultHomePage signedIn={signedIn} profileClick={profileClicked} addFav={addToFav} deleteFav={deleteFromFav} search={search} currentUser={currentUsername} allSports={allSports} allTeams={allTeams} allFavs={allFavs} />
+     <DefaultHomePage favLink={favorites} signedIn={signedIn} profileClick={profileClicked} addFav={addToFav} deleteFav={deleteFromFav} search={search} currentUserName={currentUsername} allSports={allSports} allTeams={allTeams} allFavs={allFavs} />
     </div>
   );
 }

@@ -1,13 +1,16 @@
 .App {
   text-align: center;
   background-color: black;
-  color: gold
+  color: gold;
+  margin: auto;
+  width: auto;
+  height: 3000px;
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
+} */
 
 .Header {
   color: black;
@@ -15,7 +18,7 @@
   background-color: gold; 
   margin: 30px;
   width: 50%;
-  position:relative; top:10px; margin-left: 200px;
+  position:relative; top: 20px; margin-left: 200px;
 }
 
 .FavSideBar {
@@ -57,11 +60,11 @@
   background-color: gold;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
+} */
 
 .App-header {
   background-color: #282c34;

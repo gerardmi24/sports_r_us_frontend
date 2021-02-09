@@ -6,7 +6,7 @@ export default function LoginForm({signIn, currentUsername}) {
 
     function changeUsername(e) {
         setUsername(e.target.value)
-        console.log(username)
+        // console.log(currentUsername)
     }
     
     function changePW(e) {
@@ -16,19 +16,19 @@ export default function LoginForm({signIn, currentUsername}) {
     function handleSubmit(e){
         e.preventDefault()
             if(username === "AnnieZ"){
-                signIn()
                 setUsername("")
                 setPassword("")
+                return signIn()
             }
             if (username === "EKim123"){
-                signIn()
                 setUsername("")
                 setPassword("")
+                return signIn()
             }
             if (username === "GMist24"){
-                signIn()
                 setUsername("")
                 setPassword("")
+                return signIn()
             }
             else{
                 return alert("This User does not exist, please try again")
