@@ -13,7 +13,7 @@ export default function AllTeamsDisplay({team, addFav, search}) {
     return (
         <div>
             <h3>{team.city} {team.team_name}
-            <button onClick={addTeam}>Add to favorites</button> </h3>
+            <button className="addToFavBtn" onClick={addTeam}>Add to favorites</button> </h3>
             <p>Head Coach: {team.coach},</p>
             <p>Roster: {team.roster}</p>
         </div>

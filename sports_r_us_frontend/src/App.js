@@ -13,6 +13,8 @@ function App() {
   const [allFavs, setAllFavs] = useState([])
   const [allTeams, setAllTeams] = useState([])
   const [currentUsername, setCurrentUsername] = useState("")
+  const [profileClicked, setProfileClicked] = useState("false")
+  const [signedIn, setSignedIn] = useState("false")
   // console.log(currentUsername)
 
   useEffect(() => {
@@ -55,10 +57,20 @@ function App() {
     console.log("Add to fav")
   }
 
+  function userPage(e) {
+    setProfileClicked(!profileClicked)
+    console.log("Profile", profileClicked)
+  }
+
+  function changeSignIn(e) {
+    setSignedIn(!signedIn)
+    console.log("Signed In", signedIn)
+  }
+
   return (
     <div className="App">
-     <Header search={search} currentUsername={currentUsername} setSearch={setSearch} teams={allTeams} />
-     <DefaultHomePage addFav={addToFav} deleteFav={deleteFromFav} search={search} currentUser={currentUsername} allSports={allSports} allTeams={allTeams} allFavs={allFavs} />
+     <Header signIn={changeSignIn} profile={userPage} search={search} currentUsername={currentUsername} setSearch={setSearch} teams={allTeams} />
+     <DefaultHomePage signedIn={signedIn} profileClick={profileClicked} addFav={addToFav} deleteFav={deleteFromFav} search={search} currentUser={currentUsername} allSports={allSports} allTeams={allTeams} allFavs={allFavs} />
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-export default function LoginForm({currentUsername}) {
+export default function LoginForm({signIn, currentUsername}) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
 
@@ -16,12 +16,17 @@ export default function LoginForm({currentUsername}) {
     function handleSubmit(e){
         e.preventDefault()
             if(username === "AnnieZ"){
+                signIn()
+                setUsername("")
+                setPassword("")
             }
             if (username === "EKim123"){
+                signIn()
                 setUsername("")
                 setPassword("")
             }
             if (username === "GMist24"){
+                signIn()
                 setUsername("")
                 setPassword("")
             }
@@ -37,7 +42,7 @@ export default function LoginForm({currentUsername}) {
                 <input type="text" value={username} onChange={changeUsername} name="username" />
                 <label>Password:</label>
                 <input type="password" value={password} onChange={changePW} name="password" />
-                <button onSubmit={handleSubmit}>Sign In</button>
+                <button className="signIn_Btn" onSubmit={handleSubmit}>Sign In</button>
             </form>
         </div>
     )

@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: black;
+  color: gold
 }
 
 .App-logo {
@@ -8,7 +10,7 @@
 }
 
 .Header {
-  color: blue;
+  color: black;
   border: 10px solid gold;
   background-color: gold; 
   margin: 30px;
@@ -17,8 +19,9 @@
 }
 
 .FavSideBar {
-  background-color: red;
-  position:relative; bottom:328px; margin-left: 10px;
+  background-color: gold;
+  color: black;
+  position:relative; bottom: 50px; margin-left: 10px;
   width: 25%
 }
 
@@ -33,10 +36,25 @@
 
 .LogBtn {
   margin-left: 1em;
+  color: black;
+  background-color: gold;
 }
 
 .ProfBtn {
   margin-left: 1em;
+  color: black;
+  background-color: gold;
+}
+
+.addToFavBtn {
+  color: black;
+  background-color: gold;
+  position:relative; margin-left: 2px;
+}
+
+.signIn_Btn {
+  color: black;
+  background-color: gold;
 }
 
 @media (prefers-reduced-motion: no-preference) {
