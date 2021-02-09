@@ -13,7 +13,8 @@ function App() {
   const [allFavs, setAllFavs] = useState([])
   const [allTeams, setAllTeams] = useState([])
   const [currentUsername, setCurrentUsername] = useState("")
-  
+  // console.log(currentUsername)
+
   useEffect(() => {
     fetch(sports)
     .then(r => r.json())
@@ -26,7 +27,7 @@ function App() {
     fetch(users)
     .then(r => r.json())
     .then((users) => {
-      setCurrentUsername(sports)
+      setCurrentUsername(users)
     });
   }, []);
 
@@ -56,7 +57,7 @@ function App() {
 
   return (
     <div className="App">
-     <Header search={search} setSearch={setSearch} teams={allTeams} />
+     <Header search={search} currentUsername={currentUsername} setSearch={setSearch} teams={allTeams} />
      <DefaultHomePage addFav={addToFav} deleteFav={deleteFromFav} search={search} currentUser={currentUsername} allSports={allSports} allTeams={allTeams} allFavs={allFavs} />
     </div>
   );

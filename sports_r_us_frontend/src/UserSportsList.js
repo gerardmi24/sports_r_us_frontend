@@ -10,6 +10,7 @@ export default function UserSportsList({fav, deleteFav}) {
 
     return (
         <div>
+            Testing out
             {fav}
             <button onClick={removeFromFav}>Delete Team</button>
             <CommentsForm />

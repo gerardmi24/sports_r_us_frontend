@@ -4,7 +4,9 @@ export default function AllTeamsDisplay({team, addFav, search}) {
     // console.log("Teams", team)
 
     function addTeam(e) {
-        console.log("Add new favorite team")
+        console.log("Add new favorite team", e)
+        e.preventDefault()
+        // const data = {}
         // addFav()
     }
 
