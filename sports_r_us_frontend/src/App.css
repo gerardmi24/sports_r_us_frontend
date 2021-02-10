@@ -1,31 +1,44 @@
 .App {
   text-align: center;
+  font-weight: bold;
   background-color: black;
   color: gold;
-  margin: auto;
-  width: auto;
-  height: 3000px;
+  /* margin: auto; */
+  /* width: auto; */
+  height: 2500px;
 }
-
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-} */
 
 .Header {
   color: black;
-  border: 10px solid gold;
+  font-weight: bolder;
+  border: 15px solid gold;
   background-color: gold; 
-  margin: 30px;
-  width: 50%;
-  position:relative; top: 20px; margin-left: 200px;
+  width: 30%;
+  position:relative; top: 30px; margin-left: 26em;
+}
+
+.HomePage {
+  position:relative; top: 80px; margin: 2em;
+
 }
 
 .FavSideBar {
+  font-weight: bold;
   background-color: gold;
   color: black;
-  position:relative; bottom: 50px; margin-left: 10px;
-  width: 25%
+  position:relative; top: 50px; margin-left: 40px;
+  width: 17%;
+  height: 30px;
+  border: 7px solid gold;
+}
+
+.Profile {
+  position:relative; bottom: 150px;
+}
+
+.login-form {
+  font-weight: bold;
+  position:relative; top: 70px; margin-left: 40px;
 }
 
 .BtnDiv {
@@ -33,31 +46,68 @@
   position:relative;
 }
 
-.SearchBtn {
-  margin-left: 1em;
+/* .SearchBtn {
+  position:relative; bottom: 1000px; margin-left: 1em;
+} */
+
+.SearchBar {
+  position:relative; top: 2em; margin-left: 1em;
 }
 
 .LogBtn {
-  margin-left: 1em;
+  width: 6%;
+  font-weight: bold;
   color: black;
   background-color: gold;
+  position:relative; top: 4em; margin-left: 2em;
 }
 
 .ProfBtn {
-  margin-left: 1em;
+  font-weight: bold;
+  width: 6%;
   color: black;
   background-color: gold;
+  position:relative; top: 4em; margin-left: 2em;
 }
 
 .addToFavBtn {
+  font-weight: bold;
   color: black;
   background-color: gold;
-  position:relative; margin-left: 2px;
+  position:relative; margin: 15px;
 }
 
 .signIn_Btn {
+  width: 5%;
+  font-weight: bold;
   color: black;
   background-color: gold;
+  position:relative; margin-left: 2em;
+}
+
+.DelBtn {
+  width: 6%;
+  font-weight: bold;
+  color: black;
+  background-color: gold;
+  position:relative; margin-left: 2em;
+}
+
+.removeBtn {
+  font-weight: bold;
+  color: gold;
+  background-color: black;
+  position:grid; margin-left: 25px;
+}
+
+.Comments {
+  font-weight: bold;
+  background-color: gold;
+  color: black;
+  position:relative; top: 150px; margin-left: 1300px;
+  width: 17%;
+  height: 30px;
+  border: 7px solid gold;
 }
 
 /* @media (prefers-reduced-motion: no-preference) {
@@ -75,6 +125,21 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.Plz {
+  position:relative; top: 2em;
+  font-weight: bold;
+}
+
+.Username {
+  font-weight: bold;
+  position:relative; margin: 1em;
+}
+
+.Pw {
+  font-weight: bold;
+  position:relative; margin: 1em;
 }
 
 .App-link {

@@ -12,9 +12,8 @@ export default function NavBar({profile, changeSignIn, signedIn, currentUsername
 
     return (
         <div className="BtnDiv">
-            Nav Bar
             <Search setSearch={setSearch} search={search} />
-            <button className="LogBtn" onClick={login} > {clicked ? "Login" : "Welcome!"} </button>
+            <button className="LogBtn" onClick={login} > {clicked ? "Log In" : "Actually, Don't"} </button>
             <button className="ProfBtn" onClick={profile} > Profile </button>
             {clicked ? null : <LoginForm changedSignIn={changeSignIn} signedIn={signedIn} currentUsername={currentUsername}/>}
             

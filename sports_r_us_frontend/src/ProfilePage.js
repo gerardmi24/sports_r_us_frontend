@@ -8,11 +8,12 @@ export default function ProfilePage({deleteFav, allFavs, allSports}) {
 
     // const renderFavs = allFavs.map((fav => <UserSportsList key={fav.id} deleteFav={deleteFav} fav={fav} />))
 
-    // console.log(allFavs)
+    console.log("All Favs", allFavs)
 
     return (
-        <div>
+        <div className="Profile">
             {chooseFavs}
+            <UserSportsList allFavs={allFavs} deleteFav={deleteFav} />
             {/* {renderFavs} */}
         </div>
     )

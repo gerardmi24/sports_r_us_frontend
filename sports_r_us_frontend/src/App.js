@@ -69,7 +69,7 @@ function App() {
 
   function userPage(e) {
     setProfileClicked(!profileClicked)
-    console.log("Profile", profileClicked)
+    // console.log("Profile", profileClicked)
   }
 
   function changeSignIn(e) {

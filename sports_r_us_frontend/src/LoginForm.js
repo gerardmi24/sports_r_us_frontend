@@ -38,11 +38,11 @@ export default function LoginForm({signedIn, changedSignIn, currentUsername}) {
     return (
         <div>
             <form className="login-form" onSubmit={handleSubmit}>
-                <label>Username:</label>
+                <label className="Username">Username:</label>
                 <input type="text" value={username} onChange={changeUsername} name="username" />
-                <label>Password:</label>
+                <label className="Pw">Password:</label>
                 <input type="password" value={password} onChange={changePW} name="password" />
-                <button className="signIn_Btn" onSubmit={handleSubmit}>{signedIn ? "Log In" : "Log Out"}</button>
+                <button className="signIn_Btn" onSubmit={handleSubmit}>{signedIn ? "Log Out" : "Log In"}</button>
             </form>
         </div>
     )
