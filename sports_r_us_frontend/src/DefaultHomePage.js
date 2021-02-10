@@ -2,7 +2,7 @@ import React from 'react';
 import ProfilePage from './ProfilePage';
 import AllTeamsContainer from './AllTeamsContainer';
 
-export default function DefaultHomePage({favLink, signedIn, profileClick, deleteFav, addFav, currentUserName, search, allSports, allTeams, allFavs}) {
+export default function DefaultHomePage({goHomePage, favLink, signedIn, profileClicked, deleteFav, addFav, currentUserName, search, allSports, allTeams, allFavs}) {
     
     return (
         <div className="HomePage">
@@ -12,7 +12,14 @@ export default function DefaultHomePage({favLink, signedIn, profileClick, delete
             // <p className="Plz" >Please sign in</p>
             null
             }
-            {profileClick ? <ProfilePage allFavs={allFavs} deleteFav={deleteFav} allSports={allSports}/> : null}
+            {profileClicked === true ? <ProfilePage allFavs={allFavs} deleteFav={deleteFav} allSports={allSports} />
+            :
+            null
+            }
+            {goHomePage === true ? <AllTeamsContainer currentUserName={currentUserName} search={search} favLink={favLink} addFav={addFav} allSports={allSports} allTeams={allTeams} />
+            :
+            null
+            }
         </div>
     )
 }
