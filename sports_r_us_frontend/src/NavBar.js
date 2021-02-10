@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Search from './Search';
 import LoginForm from './LoginForm';
 
-export default function NavBar({profile, signIn, currentUsername, search, setSearch}) {
+export default function NavBar({profile, changeSignIn, signedIn, currentUsername, search, setSearch}) {
     const [clicked, setClicked] = useState("false")
 
     function login(e) {
@@ -16,7 +16,7 @@ export default function NavBar({profile, signIn, currentUsername, search, setSea
             <Search setSearch={setSearch} search={search} />
             <button className="LogBtn" onClick={login} > {clicked ? "Login" : "Welcome!"} </button>
             <button className="ProfBtn" onClick={profile} > Profile </button>
-            {clicked ? null : <LoginForm signIn={signIn} currentUsername={currentUsername}/>}
+            {clicked ? null : <LoginForm changedSignIn={changeSignIn} signedIn={signedIn} currentUsername={currentUsername}/>}
             
         </div>
     )
