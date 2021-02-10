@@ -104,10 +104,15 @@
   font-weight: bold;
   background-color: gold;
   color: black;
-  position:relative; top: 150px; margin-left: 1300px;
+  position:relative; bottom: 125px; margin-left: 1400px;
   width: 17%;
   height: 30px;
   border: 7px solid gold;
+}
+
+.userProfFavs {
+  position:relative; margin-left: 380px;
+  text-align: left;
 }
 
 /* @media (prefers-reduced-motion: no-preference) {
