@@ -53,7 +53,7 @@
 }
 
 .Profile {
-  position:relative; bottom: 150px;
+  position:relative; bottom: 50px;
 }
 
 .login-form {
@@ -62,13 +62,8 @@
 }
 
 .BtnDiv {
-  /* display: flex; */
   position:relative;
 }
-
-/* .SearchBtn {
-  position:relative; bottom: 1000px; margin-left: 1em;
-} */
 
 .SearchBar {
   position:relative; top: 13px; margin-left: 50em;
@@ -142,12 +137,6 @@
   position:relative; margin-left: 380px;
   text-align: left;
 }
-
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
 
 .App-header {
   background-color: #282c34;
