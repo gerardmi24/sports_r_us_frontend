@@ -31,7 +31,7 @@
   grid-template-columns: auto auto;
   justify-content: center;
   padding: 10px;
-  margin: 10px
+  margin: 10px;
 }
 
 .HomeCard {
@@ -46,7 +46,7 @@
   font-weight: bold;
   background-color: gold;
   color: black;
-  position:relative; top: 50px; margin-left: 40px;
+  position:relative; top: 195px; margin-left: 40px;
   width: 17%;
   height: 30px;
   border: 7px solid gold;
@@ -186,4 +186,29 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+nav {
+  background-color: gold;
+}
+
+nav a {
+  display: inline-block;
+  margin: 1rem 2rem;
+  text-decoration: none;
+  font-size: 1.2em;
+  color: black;
+  border-bottom: 2px solid black;
+  transition: 0.1s;
+}
+
+nav a:hover,
+nav a:active {
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+nav a.active {
+  background-color: black;
+  color: white;
 }

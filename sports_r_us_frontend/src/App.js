@@ -2,6 +2,11 @@ import React, {useEffect, useState} from "react";
 import './App.css';
 import Header from './Header';
 import DefaultHomePage from './DefaultHomePage';
+import { Switch, Route } from "react-router-dom";
+import NavagationBar from './NavagationBar';
+import LoginForm from './LoginForm';
+import AllTeamsContainer from './AllTeamsContainer';
+import ProfilePage from './ProfilePage'
 
 function App() {
   const sports = "http://localhost:3000/sports/"
@@ -12,10 +17,11 @@ function App() {
   const [allSports, setAllSports] = useState([])
   const [allFavs, setAllFavs] = useState([])
   const [allTeams, setAllTeams] = useState([])
-  const [currentUsername, setCurrentUsername] = useState("")
+  const [currentUserName, setCurrentUserName] = useState("")
   const [profileClicked, setProfileClicked] = useState(false)
   const [goHomePage, setGoHomePage] = useState(false)
   const [signedIn, setSignedIn] = useState(false)
+  const [page, setPage] = useState("/")
 
   useEffect(() => {
     fetch(sports)
@@ -29,7 +35,7 @@ function App() {
     fetch(users)
     .then(r => r.json())
     .then((users) => {
-      setCurrentUsername(users)
+      setCurrentUserName(users)
     });
   }, []);
 
@@ -74,8 +80,27 @@ function App() {
 
   return (
     <div className="App">
-     <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUsername={currentUsername} setSearch={setSearch} teams={allTeams} />
-     <DefaultHomePage goHomePage={goHomePage} favLink={favorites} signedIn={signedIn} profileClicked={profileClicked} addFav={addToFav} deleteFav={deleteFromFav} search={search} currentUserName={currentUsername} allSports={allSports} allTeams={allTeams} allFavs={allFavs} />
+      <NavagationBar onChangePage={setPage} />
+      <Switch>
+        <Route exact path="/">
+          <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
+          <LoginForm changedSignIn={changeSignIn} signedIn={signedIn} currentUserName={currentUserName} />
+          {/* <DefaultHomePage goHomePage={goHomePage} favLink={favorites} signedIn={signedIn} profileClicked={profileClicked} addFav={addToFav} deleteFav={deleteFromFav} search={search} currentUserName={currentUserName} allSports={allSports} allTeams={allTeams} allFavs={allFavs} /> */}
+        </Route>
+        {/* <Route exact path="/login">
+          <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
+          <LoginForm changedSignIn={changeSignIn} signedIn={signedIn} currentUserName={currentUserName} />
+        </Route> */}
+        <Route exact path="/home">
+          <AllTeamsContainer currentUserName={currentUserName} search={search} favLink={favorites} addFav={addToFav} allSports={allSports} allTeams={allTeams} />
+        </Route>
+        <Route exact path="/profile">
+          <ProfilePage allFavs={allFavs} signedIn={signedIn} deleteFav={deleteFromFav} allSports={allSports} />
+        </Route>
+        <Route path="*">
+          <h1>404 not found</h1>
+        </Route>
+      </Switch>
     </div>
   );
 }

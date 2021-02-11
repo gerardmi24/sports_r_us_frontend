@@ -2,7 +2,7 @@ import React from 'react';
 import UserSportsList from './UserSportsList';
 import FavSidebar from './FavSidebar'
 
-export default function ProfilePage({deleteFav, allFavs, allSports}) {
+export default function ProfilePage({deleteFav, allFavs, allSports, signedIn}) {
 
     const chooseFavs = allSports.map((sport => <FavSidebar key={sport.id} sport={sport} />))
 
@@ -12,9 +12,14 @@ export default function ProfilePage({deleteFav, allFavs, allSports}) {
 
     return (
         <div className="Profile">
+            {/* {signedIn === true ? {chooseFavs} && {renderFavs}
+            :
+            alert("You are not logged in yet!")
+            
+            } */}
             {chooseFavs}
-            {/* <UserSportsList allFavs={allFavs} deleteFav={deleteFav} /> */}
             {renderFavs}
+            {/* <UserSportsList allFavs={allFavs} deleteFav={deleteFav} /> */}
         </div>
     )
 }
