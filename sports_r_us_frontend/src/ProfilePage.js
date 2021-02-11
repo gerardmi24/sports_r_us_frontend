@@ -6,16 +6,7 @@ export default function ProfilePage({profileClicked, userPage, deleteFav, allFav
 
     const chooseFavs = allSports.map((sport => <FavSidebar key={sport.id} sport={sport} />))
 
-    // function chooseFavs() {
-    //     return allSports.map((sport) => <FavSidebar key={sport.id} sport={sport} />)
-    // }
-
-    const renderFavs = allFavs.map((fav) => <UserSportsList key={fav.team.id} deleteFav={deleteFav} fav={fav} />)
-
-    // function renderFavs() {
-    //     return allFavs.map((fav) => <UserSportsList key={fav.team.id} deleteFav={deleteFav} fav={fav} />)
-    // }
-    // console.log("All Favs", allFavs)
+    const renderFavs = allFavs.map((fav) => <UserSportsList userPage={userPage} key={fav.team.id} deleteFav={deleteFav} fav={fav} />)
 
     return (
         <div className="Profile">
@@ -29,7 +20,3 @@ export default function ProfilePage({profileClicked, userPage, deleteFav, allFav
         </div>
     )
 }
-
-// const renderTeams = allTeams.map((team => 
-//     <AllTeamsDisplay key={team.id} search={search} team={team} />)
-//     )
