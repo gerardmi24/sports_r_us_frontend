@@ -6,8 +6,8 @@ export default function ProfilePage({profileClicked, userPage, deleteFav, allFav
 
     const chooseFavs = allSports.map((sport => <FavSidebar key={sport.id} sport={sport} />))
 
-    const renderFavs = allFavs.map((fav) => <UserSportsList userPage={userPage} key={fav.team.id} deleteFav={deleteFav} fav={fav} />)
-
+    const renderFavs = allFavs.map((fav) => <UserSportsList userPage={userPage} key={fav.id} deleteFav={deleteFav} fav={fav} />)
+console.log("Prof page allFavs", allFavs)
     return (
         <div className="Profile">
             {chooseFavs}

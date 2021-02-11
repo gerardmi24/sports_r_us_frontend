@@ -57,7 +57,8 @@ function App() {
   }, []);
 
   function deleteFromFav(id) {
-    const newAllFavs = allFavs.filter((fav) => fav.team_id !== id)
+    // console.log("Id", id)
+    const newAllFavs = allFavs.filter((fav) => fav.id !== id)
     setAllFavs(newAllFavs)
   }
 
