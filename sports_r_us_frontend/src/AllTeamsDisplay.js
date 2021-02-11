@@ -23,7 +23,13 @@ export default function AllTeamsDisplay({favLink, currentUserName, team, addFav,
         body: JSON.stringify(newFav)
     })
     .then(r => r.json())
-    .then(newFav => addFav(newFav))
+    .then(newFav => {
+        if (newFav.message) {
+            alert("This is already one of your Favorite Teams!")
+        }
+        else
+        {addFav(newFav)}
+    })
     }
 
     return (

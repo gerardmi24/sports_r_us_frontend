@@ -57,7 +57,7 @@ function App() {
   }, []);
 
   function deleteFromFav(id) {
-    const newAllFavs = allFavs.filter((fav) => fav.id !== id)
+    const newAllFavs = allFavs.filter((fav) => fav.team_id !== id)
     setAllFavs(newAllFavs)
   }
 
@@ -67,13 +67,10 @@ function App() {
 
   function userPage(e) {
     setProfileClicked(!profileClicked)
-    // setProfileClicked((profileClicked) => !profileClicked)
-    console.log("Profile Clicked", profileClicked)
   }
 
   function homePage(e) {
     setGoHomePage(!goHomePage)
-    console.log("Home Clicked", goHomePage)
   }
 
   function changeSignIn(e) {
@@ -82,7 +79,6 @@ function App() {
 
   const searchTeams = allTeams.filter((team) => 
     team.city.toLowerCase().includes(search.toLowerCase()))
-    // .slice
 
   return (
     <div className="App">

@@ -10,13 +10,8 @@ export default function ProfilePage({profileClicked, userPage, deleteFav, allFav
 
     return (
         <div className="Profile">
-            {/* {signedIn ? {chooseFavs} && {renderFavs}
-            :
-            null
-            } */}
             {chooseFavs}
             {renderFavs}
-            {/* <UserSportsList allFavs={allFavs} deleteFav={deleteFav} /> */}
         </div>
     )
 }
