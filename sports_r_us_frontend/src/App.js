@@ -7,6 +7,7 @@ import NavagationBar from './NavagationBar';
 import LoginForm from './LoginForm';
 import AllTeamsContainer from './AllTeamsContainer';
 import ProfilePage from './ProfilePage'
+import Search from './Search.js'
 
 function App() {
   const sports = "http://localhost:3000/sports/"
@@ -78,6 +79,10 @@ function App() {
     setSignedIn(!signedIn)
   }
 
+  const searchTeams = allTeams.filter((team) => 
+    team.city.toLowerCase().includes(search.toLowerCase()))
+    // .slice
+
   return (
     <div className="App">
       <NavagationBar onChangePage={setPage} />
@@ -92,10 +97,11 @@ function App() {
           <LoginForm changedSignIn={changeSignIn} signedIn={signedIn} currentUserName={currentUserName} />
         </Route> */}
         <Route exact path="/home">
-          <AllTeamsContainer currentUserName={currentUserName} search={search} favLink={favorites} addFav={addToFav} allSports={allSports} allTeams={allTeams} />
+          <Search setSearch={setSearch} search={search} />
+          <AllTeamsContainer signedIn={signedIn} currentUserName={currentUserName} search={search} favLink={favorites} addFav={addToFav} allSports={allSports} allTeams={searchTeams} />
         </Route>
         <Route exact path="/profile">
-          <ProfilePage allFavs={allFavs} signedIn={signedIn} deleteFav={deleteFromFav} allSports={allSports} />
+          <ProfilePage allFavs={allFavs} userPage={userPage} profileClicked={profileClicked} signedIn={signedIn} deleteFav={deleteFromFav} allSports={allSports} />
         </Route>
         <Route path="*">
           <h1>404 not found</h1>

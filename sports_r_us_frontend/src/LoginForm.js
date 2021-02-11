@@ -15,6 +15,9 @@ export default function LoginForm({signedIn, changedSignIn, currentUserName}) {
     
     function handleSubmit(e){
         e.preventDefault()
+            if (password === ""){
+                return alert("That is the incorrect password!")
+            }
             if(username === "AnnieZ"){
                 setUsername("")
                 setPassword("")

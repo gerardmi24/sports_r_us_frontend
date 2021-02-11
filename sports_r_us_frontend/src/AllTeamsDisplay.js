@@ -4,7 +4,6 @@ export default function AllTeamsDisplay({favLink, currentUserName, team, addFav,
     const {id, username, password, email, age} = currentUserName[0]
     // const [allIds, setAllIds] = useState([id])
     // console.log("All Ids", allIds)
-
     // console.log("Current User", currentUserName)
     
     function addTeam(e) {

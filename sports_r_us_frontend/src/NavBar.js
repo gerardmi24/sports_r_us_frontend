@@ -18,7 +18,7 @@ export default function NavBar({goToProfile, returnHome, changeSignIn, signedIn,
 
     return (
         <div className="BtnDiv">
-            <Search setSearch={setSearch} search={search} />
+            {/* <Search setSearch={setSearch} search={search} /> */}
             {/* <button className="LogBtn" onClick={login} > {clicked ? "Log In" : "Actually, Don't"} </button> */}
             {/* <button className="HomeBtn" onClick={returnHome} > Home </button> */}
             {/* <button className="ProfBtn" onClick={goToProfile} > Profile </button> */}
