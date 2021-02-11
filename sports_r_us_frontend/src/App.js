@@ -81,6 +81,37 @@ function App() {
   const searchTeams = allTeams.filter((team) => 
     team.city.toLowerCase().includes(search.toLowerCase()))
 
+  function editRoster(e, team, currentRoster, id){
+    console.log("Edit Id", e, currentRoster, id)
+    // e.preventDefault()
+    // console.log("Roster Edit", e, currentRoster)
+    // setCurrentRoster(e.target.value)
+    fetch(`http://localhost:3000/teams/${team.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({roster: currentRoster})
+    })
+    .then(r => r.json())
+    .then((fixedRoster) => {
+      // console.log("FixedRoster", fixedRoster))
+
+      // let newAllTeams = [...allTeams]
+      // let teamObj = newAllTeams.find(team => team.id === fixedRoster.id)
+      // let teamIdx = newAllTeams.indexOf(teamObj)
+      // newAllTeams[teamIdx] = fixedRoster
+      // setAllTeams(newAllTeams)
+      let newAllFavs = [...allFavs]
+      let favObj = newAllFavs.find(fav => fav.id === fixedRoster.id)
+        // console.log(fav))
+      let favIdx = newAllFavs.indexOf(favObj)
+      newAllFavs[favIdx] = fixedRoster
+      setAllFavs(newAllFavs)
+        console.log("Fixed Roster", fixedRoster)
+    })
+  }
+
   return (
     <div className="App">
       <NavagationBar onChangePage={setPage} />
@@ -101,7 +132,7 @@ function App() {
         </Route>
         <Route exact path="/profile">
           <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
-          <ProfilePage allFavs={allFavs} userPage={userPage} profileClicked={profileClicked} signedIn={signedIn} deleteFav={deleteFromFav} allSports={allSports} />
+          <ProfilePage allFavs={allFavs} editRoster={editRoster} userPage={userPage} profileClicked={profileClicked} signedIn={signedIn} deleteFav={deleteFromFav} allSports={allSports} />
         </Route>
         <Route path="*">
           <h1>404 not found</h1>

@@ -120,7 +120,24 @@ body {
   font-weight: bold;
   color: black;
   background-color: gold;
-  position:relative; margin-left: 2em;
+  position:relative; margin-left: 2em; bottom: 1em;
+}
+
+.EditLabel {
+  margin-right: 30px;
+  margin:2em;
+}
+
+.EditPlayers {
+  width: 30%;
+  margin-left: 15px;
+}
+
+.FormSubmit {
+  font-weight: bold;
+  color: black;
+  background-color: gold;
+  width: 7%;
 }
 
 .DelBtn {
