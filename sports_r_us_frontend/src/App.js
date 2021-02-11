@@ -67,6 +67,7 @@ function App() {
 
   function userPage(e) {
     setProfileClicked(!profileClicked)
+    // setProfileClicked((profileClicked) => !profileClicked)
     console.log("Profile Clicked", profileClicked)
   }
 
@@ -97,10 +98,12 @@ function App() {
           <LoginForm changedSignIn={changeSignIn} signedIn={signedIn} currentUserName={currentUserName} />
         </Route> */}
         <Route exact path="/home">
+          <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
           <Search setSearch={setSearch} search={search} />
           <AllTeamsContainer signedIn={signedIn} currentUserName={currentUserName} search={search} favLink={favorites} addFav={addToFav} allSports={allSports} allTeams={searchTeams} />
         </Route>
         <Route exact path="/profile">
+          <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
           <ProfilePage allFavs={allFavs} userPage={userPage} profileClicked={profileClicked} signedIn={signedIn} deleteFav={deleteFromFav} allSports={allSports} />
         </Route>
         <Route path="*">

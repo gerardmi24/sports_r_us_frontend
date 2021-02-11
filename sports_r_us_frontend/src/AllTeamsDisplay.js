@@ -31,8 +31,8 @@ export default function AllTeamsDisplay({favLink, currentUserName, team, addFav,
         <card className="HomeCard">
             <h3>{team.city} {team.team_name}
             <button className="addToFavBtn" onClick={addTeam}>Add to favorites</button> </h3>
-            <p>Head Coach: {team.coach},</p>
-            <p>Roster: {team.roster}</p>
+            {/* <p>Head Coach: {team.coach},</p>
+            <p>Roster: {team.roster}</p> */}
         </card>
         </div>
     )
