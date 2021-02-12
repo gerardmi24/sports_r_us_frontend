@@ -81,8 +81,8 @@ function App() {
   const searchTeams = allTeams.filter((team) => 
     team.city.toLowerCase().includes(search.toLowerCase()))
 
-  function editRoster(e, team, currentRoster, id){
-    console.log("Edit Id", e, currentRoster, id)
+  function editRoster(e, team, currentRoster){
+    console.log("PATCH Edit Id", team, team.id, currentRoster)
     // e.preventDefault()
     // console.log("Roster Edit", e, currentRoster)
     // setCurrentRoster(e.target.value)
@@ -95,20 +95,22 @@ function App() {
     })
     .then(r => r.json())
     .then((fixedRoster) => {
-      // console.log("FixedRoster", fixedRoster))
-
+      console.log("FixedRoster", fixedRoster)
       // let newAllTeams = [...allTeams]
       // let teamObj = newAllTeams.find(team => team.id === fixedRoster.id)
       // let teamIdx = newAllTeams.indexOf(teamObj)
       // newAllTeams[teamIdx] = fixedRoster
       // setAllTeams(newAllTeams)
       let newAllFavs = [...allFavs]
-      let favObj = newAllFavs.find(fav => fav.id === fixedRoster.id)
-        // console.log(fav))
+      console.log("New all favs", newAllFavs)
+      let favObj = newAllFavs.find(fav => fav.team_id === fixedRoster.id)
       let favIdx = newAllFavs.indexOf(favObj)
-      newAllFavs[favIdx] = fixedRoster
+      console.log("Fav index", favIdx)
+      console.log("Fav Obj", favObj)
+
+      newAllFavs[favIdx].team = fixedRoster
+      console.log("All new favs", newAllFavs)
       setAllFavs(newAllFavs)
-        console.log("Fixed Roster", fixedRoster)
     })
   }
 

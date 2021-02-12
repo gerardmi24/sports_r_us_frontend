@@ -23,8 +23,20 @@ body {
   background-color: black; 
   outline: 4px solid gold;
   width: 25%;
-  position:relative; top: 15px; margin-left: 27.5em;
+  align-content: center;
+  position:relative; top: 15px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.LowerBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
 
 .HomePage {
   position:relative; top: 80px; margin: 2em;
@@ -47,6 +59,11 @@ body {
   font-size: 20px;
 }
 
+.Profile {
+  position:relative; bottom: 120px;
+  color: black;
+}
+
 .FavSideBar {
   font-weight: bold;
   background-color: gold;
@@ -55,11 +72,6 @@ body {
   width: 17%;
   height: 30px;
   border: 7px solid gold;
-}
-
-.Profile {
-  position:relative; bottom: 120px;
-  color: black;
 }
 
 .login-form {
@@ -73,7 +85,7 @@ body {
 }
 
 .SearchBar {
-  position:relative; margin-left: 65em;
+  position:relative; margin-left: 65em; bottom: 15px;
 }
 
 .LogBtn {
@@ -116,7 +128,7 @@ body {
 }
 
 .EditRoster {
-  width: 6%;
+  width: 7%;
   font-weight: bold;
   color: black;
   background-color: gold;
@@ -159,7 +171,7 @@ body {
   font-weight: bold;
   background-color: gold;
   color: black;
-  position:relative; bottom: 125px; margin-left: 1400px;
+  position:relative; bottom: 140px; margin-left: 1200px;
   width: 17%;
   height: 30px;
   border: 7px solid gold;
