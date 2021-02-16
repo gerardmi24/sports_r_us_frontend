@@ -115,16 +115,16 @@ function App() {
       <NavagationBar onChangePage={setPage} />
       <Switch>
         <Route exact path="/">
-          <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
+          <Header />
           <LoginForm loggedIn={loggedIn} changeLog={changeLog} changedSignIn={changeSignIn} signedIn={signedIn} currentUserName={currentUserName} />
         </Route>
         <Route exact path="/home">
-          <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
+          <Header />
           {signedIn ? <Search setSearch={setSearch} search={search} /> : null}
           {signedIn ? <AllTeamsContainer allFavs={allFavs} signedIn={signedIn} currentUserName={currentUserName} search={search} favLink={favorites} addFav={addToFav} allSports={allSports} allTeams={searchTeams} /> : null}
         </Route>
         <Route exact path="/profile">
-          <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
+          <Header />
           {signedIn ? <ProfilePage allFavs={allFavs} editRoster={editRoster} userPage={userPage} signedIn={signedIn} deleteFav={deleteFromFav} allSports={allSports} /> : null}
         </Route>
         <Route path="*">

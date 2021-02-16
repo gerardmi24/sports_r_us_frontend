@@ -2,7 +2,7 @@ import React from 'react';
 import UserSportsList from './UserSportsList';
 import FavSidebar from './FavSidebar'
 
-export default function ProfilePage({editRoster, userPage, deleteFav, allFavs, allSports, signedIn}) {
+export default function ProfilePage({editRoster, userPage, deleteFav, allFavs, allSports}) {
 
     const chooseFavs = allSports.map((sport => <FavSidebar key={sport.id} sport={sport} />))
 

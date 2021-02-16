@@ -1,17 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 
-export default function AllTeamsDisplay({allFavs, favLink, currentUserName, team, addFav, search}) {
+export default function AllTeamsDisplay({allFavs, favLink, currentUserName, team, addFav}) {
     const {id, username, password, email, age} = currentUserName[0]
-
-    // console.log("All Favs", allFavs)
     
     function addTeam(e) {
         e.preventDefault()
-        // currentUserName.map((user) => setAllIds([...allIds, user.id]))
         const newFav = {
         user_id: id,
         team_id: team.id,
-        // created_at: new Date().toUTCString()
     }
     fetch(favLink, {
         method: "POST",

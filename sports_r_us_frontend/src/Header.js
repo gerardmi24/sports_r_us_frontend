@@ -1,10 +1,9 @@
 import React from 'react';
-import NavBar from './NavBar';
 
-export default function Header({goToProfile, returnHome, changeSignIn, signedIn, currentUsername, teams, search, setSearch}) {
+export default function Header({}) {
     return (
         <div className="LowerBody">
-            <h2 className="Header">Sports R Us (Working Title)</h2>
+            <h2 className="Header">TeamWorks</h2>
         </div>
     )
 }

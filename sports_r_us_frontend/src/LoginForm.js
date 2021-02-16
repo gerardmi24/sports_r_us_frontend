@@ -1,12 +1,11 @@
 import React, {useState} from 'react'
 
-export default function LoginForm({loggedIn, changeLog, signedIn, changedSignIn, currentUserName}) {
+export default function LoginForm({loggedIn, changeLog, signedIn, changedSignIn}) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    // console.log("Sign In/Out", signIn)
+
     function changeUsername(e) {
         setUsername(e.target.value)
-        // console.log(currentUserName)
     }
     
     function changePW(e) {

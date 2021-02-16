@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import CommentsForm from './CommentsForm';
 
-export default function UserSportsList({id, editRoster, fav, team, roster, deleteFav}) {
+export default function UserSportsList({ editRoster, fav, team, roster, deleteFav}) {
     const [currentRoster, setCurrentRoster] = useState(roster)
     const [formClick, setFormClick] = useState(false)
 
