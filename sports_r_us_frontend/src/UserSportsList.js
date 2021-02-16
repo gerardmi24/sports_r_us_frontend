@@ -4,12 +4,6 @@ import CommentsForm from './CommentsForm';
 export default function UserSportsList({id, editRoster, fav, team, roster, deleteFav}) {
     const [currentRoster, setCurrentRoster] = useState(roster)
     const [formClick, setFormClick] = useState(false)
-    // const {id, sport_id, team_name, city} = team
-    // console.log("Current?", currentRoster)
-    // console.log("Team Id", id, currentRoster)
-    // const [currentRoster, setCurrentRoster] = useState(fav.team.roster)
-    // let roster = fav.team.roster
-    // const renderRoster = roster.map(players => console.log(players))
 
     function removeFromFav(e){
         fetch(`http://localhost:3000/favorites/${fav.id}`, {

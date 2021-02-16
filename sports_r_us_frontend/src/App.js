@@ -23,7 +23,7 @@ function App() {
   const [goHomePage, setGoHomePage] = useState(false)
   const [signedIn, setSignedIn] = useState(false)
   const [page, setPage] = useState("/")
-  const [loggedIn, setLoggedIn] = useState()
+  const [loggedIn, setLoggedIn] = useState(false)
 
 
   useEffect(() => {
@@ -118,7 +118,9 @@ function App() {
 
   function changeLog(e) {
     setLoggedIn(!loggedIn)
-    console.log("Logged In/Out", loggedIn)
+    // console.log("Logged In/Out", loggedIn)  
+    // return changedSignIn()
+    setSignedIn(!signedIn)
   }
 
   return (
@@ -137,7 +139,7 @@ function App() {
         <Route exact path="/home">
           <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
           {signedIn ? <Search setSearch={setSearch} search={search} /> : null}
-          {signedIn ? <AllTeamsContainer signedIn={signedIn} currentUserName={currentUserName} search={search} favLink={favorites} addFav={addToFav} allSports={allSports} allTeams={searchTeams} /> : null}
+          {signedIn ? <AllTeamsContainer allFavs={allFavs} signedIn={signedIn} currentUserName={currentUserName} search={search} favLink={favorites} addFav={addToFav} allSports={allSports} allTeams={searchTeams} /> : null}
         </Route>
         <Route exact path="/profile">
           <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />

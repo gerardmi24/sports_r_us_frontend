@@ -1,10 +1,9 @@
 import React, {useState} from 'react';
 
-export default function AllTeamsDisplay({favLink, currentUserName, team, addFav, search}) {
+export default function AllTeamsDisplay({allFavs, favLink, currentUserName, team, addFav, search}) {
     const {id, username, password, email, age} = currentUserName[0]
-    // const [allIds, setAllIds] = useState([id])
-    // console.log("All Ids", allIds)
-    // console.log("Current User", currentUserName)
+
+    // console.log("All Favs", allFavs)
     
     function addTeam(e) {
         e.preventDefault()
@@ -36,7 +35,8 @@ export default function AllTeamsDisplay({favLink, currentUserName, team, addFav,
         <div className="OuterCard">
         <card className="HomeCard">
             <h3>{team.city} {team.team_name}
-            <button className="addToFavBtn" onClick={addTeam}>Add to favorites</button> </h3>
+            </h3>
+            <button className="addToFavBtn" onClick={addTeam}>Add to favorites</button>
             {/* <p>Head Coach: {team.coach},</p>
             <p>Roster: {team.roster}</p> */}
         </card>
