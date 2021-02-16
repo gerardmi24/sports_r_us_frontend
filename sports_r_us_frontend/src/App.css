@@ -24,7 +24,7 @@ body {
   outline: 4px solid gold;
   width: 25%;
   align-content: center;
-  position:relative; top: 15px; 
+  position:relative; top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,6 +125,14 @@ body {
   color: black;
   background-color: gold;
   position:relative; margin-left: 2em;
+}
+
+.signOut_Btn {
+  width: 5%;
+  font-weight: bold;
+  color: black;
+  background-color: gold;
+  position:relative; top: 35px; margin-left: 2em;
 }
 
 .EditRoster {

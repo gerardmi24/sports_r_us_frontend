@@ -23,6 +23,8 @@ function App() {
   const [goHomePage, setGoHomePage] = useState(false)
   const [signedIn, setSignedIn] = useState(false)
   const [page, setPage] = useState("/")
+  const [loggedIn, setLoggedIn] = useState()
+
 
   useEffect(() => {
     fetch(sports)
@@ -114,13 +116,18 @@ function App() {
     })
   }
 
+  function changeLog(e) {
+    setLoggedIn(!loggedIn)
+    console.log("Logged In/Out", loggedIn)
+  }
+
   return (
     <div className="App">
       <NavagationBar onChangePage={setPage} />
       <Switch>
         <Route exact path="/">
           <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
-          <LoginForm changedSignIn={changeSignIn} signedIn={signedIn} currentUserName={currentUserName} />
+          <LoginForm loggedIn={loggedIn} changeLog={changeLog} changedSignIn={changeSignIn} signedIn={signedIn} currentUserName={currentUserName} />
           {/* <DefaultHomePage goHomePage={goHomePage} favLink={favorites} signedIn={signedIn} profileClicked={profileClicked} addFav={addToFav} deleteFav={deleteFromFav} search={search} currentUserName={currentUserName} allSports={allSports} allTeams={allTeams} allFavs={allFavs} /> */}
         </Route>
         {/* <Route exact path="/login">
@@ -129,12 +136,12 @@ function App() {
         </Route> */}
         <Route exact path="/home">
           <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
-          <Search setSearch={setSearch} search={search} />
-          <AllTeamsContainer signedIn={signedIn} currentUserName={currentUserName} search={search} favLink={favorites} addFav={addToFav} allSports={allSports} allTeams={searchTeams} />
+          {signedIn ? <Search setSearch={setSearch} search={search} /> : null}
+          {signedIn ? <AllTeamsContainer signedIn={signedIn} currentUserName={currentUserName} search={search} favLink={favorites} addFav={addToFav} allSports={allSports} allTeams={searchTeams} /> : null}
         </Route>
         <Route exact path="/profile">
           <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
-          <ProfilePage allFavs={allFavs} editRoster={editRoster} userPage={userPage} profileClicked={profileClicked} signedIn={signedIn} deleteFav={deleteFromFav} allSports={allSports} />
+          {signedIn ? <ProfilePage allFavs={allFavs} editRoster={editRoster} userPage={userPage} profileClicked={profileClicked} signedIn={signedIn} deleteFav={deleteFromFav} allSports={allSports} /> : null}
         </Route>
         <Route path="*">
           <h1>404 not found</h1>
