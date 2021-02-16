@@ -17,17 +17,15 @@ export default function UserSportsList({id, editRoster, fav, team, roster, delet
     
     function toggleClick(e) {
         setFormClick(!formClick)
-        // console.log("Form click", formClick)
     }
     
     function changeRoster(e) {
         setCurrentRoster(e.target.value)
-        // console.log("Value", e.target.value)
     }
     
     function handleRosterEdit(e, team, currentRoster){
         e.preventDefault()
-        // console.log("Pass to PATCH", team, team.id, currentRoster)
+        setFormClick(!formClick)
         editRoster(e, team, currentRoster)
     }
 

@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import './App.css';
 import Header from './Header';
-import DefaultHomePage from './DefaultHomePage';
 import { Switch, Route } from "react-router-dom";
 import NavagationBar from './NavagationBar';
 import LoginForm from './LoginForm';
@@ -59,7 +58,6 @@ function App() {
   }, []);
 
   function deleteFromFav(id) {
-    // console.log("Id", id)
     const newAllFavs = allFavs.filter((fav) => fav.id !== id)
     setAllFavs(newAllFavs)
   }
@@ -84,10 +82,6 @@ function App() {
     team.city.toLowerCase().includes(search.toLowerCase()))
 
   function editRoster(e, team, currentRoster){
-    console.log("PATCH Edit Id", team, team.id, currentRoster)
-    // e.preventDefault()
-    // console.log("Roster Edit", e, currentRoster)
-    // setCurrentRoster(e.target.value)
     fetch(`http://localhost:3000/teams/${team.id}`, {
         method: "PATCH",
         headers: {
@@ -98,11 +92,6 @@ function App() {
     .then(r => r.json())
     .then((fixedRoster) => {
       console.log("FixedRoster", fixedRoster)
-      // let newAllTeams = [...allTeams]
-      // let teamObj = newAllTeams.find(team => team.id === fixedRoster.id)
-      // let teamIdx = newAllTeams.indexOf(teamObj)
-      // newAllTeams[teamIdx] = fixedRoster
-      // setAllTeams(newAllTeams)
       let newAllFavs = [...allFavs]
       console.log("New all favs", newAllFavs)
       let favObj = newAllFavs.find(fav => fav.team_id === fixedRoster.id)
@@ -118,8 +107,6 @@ function App() {
 
   function changeLog(e) {
     setLoggedIn(!loggedIn)
-    // console.log("Logged In/Out", loggedIn)  
-    // return changedSignIn()
     setSignedIn(!signedIn)
   }
 
@@ -130,12 +117,7 @@ function App() {
         <Route exact path="/">
           <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
           <LoginForm loggedIn={loggedIn} changeLog={changeLog} changedSignIn={changeSignIn} signedIn={signedIn} currentUserName={currentUserName} />
-          {/* <DefaultHomePage goHomePage={goHomePage} favLink={favorites} signedIn={signedIn} profileClicked={profileClicked} addFav={addToFav} deleteFav={deleteFromFav} search={search} currentUserName={currentUserName} allSports={allSports} allTeams={allTeams} allFavs={allFavs} /> */}
         </Route>
-        {/* <Route exact path="/login">
-          <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
-          <LoginForm changedSignIn={changeSignIn} signedIn={signedIn} currentUserName={currentUserName} />
-        </Route> */}
         <Route exact path="/home">
           <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
           {signedIn ? <Search setSearch={setSearch} search={search} /> : null}
@@ -143,7 +125,7 @@ function App() {
         </Route>
         <Route exact path="/profile">
           <Header signedIn={signedIn} changeSignIn={changeSignIn} returnHome={homePage} goToProfile={userPage} search={search} currentUserName={currentUserName} setSearch={setSearch} teams={allTeams} />
-          {signedIn ? <ProfilePage allFavs={allFavs} editRoster={editRoster} userPage={userPage} profileClicked={profileClicked} signedIn={signedIn} deleteFav={deleteFromFav} allSports={allSports} /> : null}
+          {signedIn ? <ProfilePage allFavs={allFavs} editRoster={editRoster} userPage={userPage} signedIn={signedIn} deleteFav={deleteFromFav} allSports={allSports} /> : null}
         </Route>
         <Route path="*">
           <h1>404 not found</h1>
