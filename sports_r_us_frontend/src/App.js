@@ -81,11 +81,14 @@ function App() {
   }
 
   const searchTeams = allTeams.filter((team) => 
-    team.city.toLowerCase().includes(search.toLowerCase()))
+    team.city.toLowerCase().includes(search.toLowerCase())
+    // setAllTeams(searchTeams)
+  )
 
   const searchSport = allTeams.filter((team) => 
   // console.log("All sports", team.sport.sport_name, currentSport)
-    team.sport.sport_name.toLowerCase() === currentSport.toLowerCase(),
+    team.sport.sport_name.toLowerCase() === currentSport.toLowerCase()
+    // setAllTeams(searchSport)
   )
 
   function editRoster(e, team, currentRoster){
