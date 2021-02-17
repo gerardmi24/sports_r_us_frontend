@@ -7,6 +7,7 @@ import LoginForm from './LoginForm';
 import AllTeamsContainer from './AllTeamsContainer';
 import ProfilePage from './ProfilePage'
 import Search from './Search.js'
+import Dropdown from "./Dropdown";
 
 function App() {
   const sports = "http://localhost:3000/sports/"
@@ -23,7 +24,8 @@ function App() {
   const [signedIn, setSignedIn] = useState(false)
   const [page, setPage] = useState("/")
   const [loggedIn, setLoggedIn] = useState(false)
-
+  const [currentSport, setCurrentSport] = useState("All")
+// console.log("App Current Sport", currentSport)
 
   useEffect(() => {
     fetch(sports)
@@ -81,6 +83,11 @@ function App() {
   const searchTeams = allTeams.filter((team) => 
     team.city.toLowerCase().includes(search.toLowerCase()))
 
+  const searchSport = allTeams.filter((team) => 
+  // console.log("All sports", team.sport.sport_name, currentSport)
+    team.sport.sport_name.toLowerCase() === currentSport.toLowerCase()
+  )
+
   function editRoster(e, team, currentRoster){
     fetch(`http://localhost:3000/teams/${team.id}`, {
         method: "PATCH",
@@ -91,16 +98,10 @@ function App() {
     })
     .then(r => r.json())
     .then((fixedRoster) => {
-      console.log("FixedRoster", fixedRoster)
       let newAllFavs = [...allFavs]
-      console.log("New all favs", newAllFavs)
       let favObj = newAllFavs.find(fav => fav.team_id === fixedRoster.id)
       let favIdx = newAllFavs.indexOf(favObj)
-      console.log("Fav index", favIdx)
-      console.log("Fav Obj", favObj)
-
       newAllFavs[favIdx].team = fixedRoster
-      console.log("All new favs", newAllFavs)
       setAllFavs(newAllFavs)
     })
   }
@@ -120,8 +121,9 @@ function App() {
         </Route>
         <Route exact path="/home">
           <Header />
+          {signedIn ? <Dropdown allSports={allSports} setCurrentSport={setCurrentSport} currentSport={currentSport} /> : null}
           {signedIn ? <Search setSearch={setSearch} search={search} /> : null}
-          {signedIn ? <AllTeamsContainer allFavs={allFavs} signedIn={signedIn} currentUserName={currentUserName} search={search} favLink={favorites} addFav={addToFav} allSports={allSports} allTeams={searchTeams} /> : null}
+          {signedIn ? <AllTeamsContainer allFavs={allFavs} signedIn={signedIn} currentUserName={currentUserName} search={search} favLink={favorites} addFav={addToFav} allSports={allSports} searchSport={searchSport} allTeams={searchTeams} /> : null}
         </Route>
         <Route exact path="/profile">
           <Header />

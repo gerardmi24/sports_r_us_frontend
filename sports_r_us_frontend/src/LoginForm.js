@@ -13,7 +13,6 @@ export default function LoginForm({loggedIn, changeLog, signedIn, changedSignIn}
     }
     
     function handleSubmit(e){
-        console.log("Logged In", loggedIn)
         e.preventDefault()
             if (password === ""){
                 return alert("That is the incorrect password!")

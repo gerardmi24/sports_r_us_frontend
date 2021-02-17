@@ -88,6 +88,17 @@ body {
   position:relative; margin-left: 65em; bottom: 15px;
 }
 
+.SearchText {
+  color: black;
+  position:relative; margin: 2em;
+  margin-left: 65em;
+}
+
+.SportOps {
+  position:relative; margin-left: 1em;
+
+}
+
 .LogBtn {
   width: 6%;
   font-weight: bold;
