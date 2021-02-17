@@ -1,8 +1,8 @@
 import React from 'react'
 
 export default function Dropdown({allSports, setCurrentSport, currentSport}) {
-    // console.log(sport)
-    // console.log("Current Sport", currentSport)
+    // console.log("All sports", allSports.sport_name)
+    // console.log("e target", e.target)
 
     const renderSports = allSports.map((sport) => 
     <option value={sport.sport_name}>{sport.sport_name}</option>

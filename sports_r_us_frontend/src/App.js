@@ -25,7 +25,7 @@ function App() {
   const [page, setPage] = useState("/")
   const [loggedIn, setLoggedIn] = useState(false)
   const [currentSport, setCurrentSport] = useState("All")
-// console.log("App Current Sport", currentSport)
+// console.log("Current Sports", allTeams.team)
 
   useEffect(() => {
     fetch(sports)
@@ -85,7 +85,7 @@ function App() {
 
   const searchSport = allTeams.filter((team) => 
   // console.log("All sports", team.sport.sport_name, currentSport)
-    team.sport.sport_name.toLowerCase() === currentSport.toLowerCase()
+    team.sport.sport_name.toLowerCase() === currentSport.toLowerCase(),
   )
 
   function editRoster(e, team, currentRoster){
@@ -121,9 +121,9 @@ function App() {
         </Route>
         <Route exact path="/home">
           <Header />
-          {signedIn ? <Dropdown allSports={allSports} setCurrentSport={setCurrentSport} currentSport={currentSport} /> : null}
           {signedIn ? <Search setSearch={setSearch} search={search} /> : null}
-          {signedIn ? <AllTeamsContainer allFavs={allFavs} signedIn={signedIn} currentUserName={currentUserName} search={search} favLink={favorites} addFav={addToFav} allSports={allSports} searchSport={searchSport} allTeams={searchTeams} /> : null}
+          {signedIn ? <Dropdown allSports={allSports} setCurrentSport={setCurrentSport} currentSport={currentSport} /> : null}
+          {signedIn ? <AllTeamsContainer search={search} currentSport={currentSport} allFavs={allFavs} signedIn={signedIn} currentUserName={currentUserName} search={search} favLink={favorites} addFav={addToFav} allSports={allSports} searchSport={searchSport} allTeams={searchTeams} /> : null}
         </Route>
         <Route exact path="/profile">
           <Header />
