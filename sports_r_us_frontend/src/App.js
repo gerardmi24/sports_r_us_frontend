@@ -25,7 +25,6 @@ function App() {
   const [page, setPage] = useState("/")
   const [loggedIn, setLoggedIn] = useState(false)
   const [currentSport, setCurrentSport] = useState("All")
-// console.log("Current Sports", allTeams.team)
 
   useEffect(() => {
     fetch(sports)
@@ -80,17 +79,6 @@ function App() {
     setSignedIn(!signedIn)
   }
 
-  const searchTeams = allTeams.filter((team) => 
-    team.city.toLowerCase().includes(search.toLowerCase())
-    // setAllTeams(searchTeams)
-  )
-
-  const searchSport = allTeams.filter((team) => 
-  // console.log("All sports", team.sport.sport_name, currentSport)
-    team.sport.sport_name.toLowerCase() === currentSport.toLowerCase()
-    // setAllTeams(searchSport)
-  )
-
   function editRoster(e, team, currentRoster){
     fetch(`http://localhost:3000/teams/${team.id}`, {
         method: "PATCH",
@@ -113,6 +101,16 @@ function App() {
     setLoggedIn(!loggedIn)
     setSignedIn(!signedIn)
   }
+
+  const searchTeams = allTeams.filter((team) => 
+    team.city.toLowerCase().includes(search.toLowerCase())
+    // setAllTeams(searchTeams)
+  )
+
+  const searchSport = allTeams.filter((team) => 
+    team.sport.sport_name.toLowerCase() === currentSport.toLowerCase()
+    // setAllTeams(searchSport)
+  )
 
   return (
     <div className="App">

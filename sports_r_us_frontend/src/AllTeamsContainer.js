@@ -3,6 +3,8 @@ import AllTeamsDisplay from './AllTeamsDisplay';
 
 export default function AllTeamsContainer({search, currentSport, allFavs, signedIn, favLink, currentUserName, addFav, allSports, searchSport, allTeams}) {
     
+    console.log("Search length", search.length)
+
     const renderTeams = allTeams.map((team => 
         <AllTeamsDisplay key={team.id} allFavs={allFavs} favLink={favLink} currentUserName={currentUserName} addFav={addFav} team={team} />)
     )

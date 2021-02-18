@@ -39,7 +39,7 @@ export default function UserSportsList({ editRoster, fav, team, roster, deleteFa
             <p> Roster: {roster}
             <button className="EditRoster" onClick={toggleClick}>Edit Roster</button>
             {formClick === true ? 
-            <form onSubmit={((e) => handleRosterEdit(e, team, currentRoster))}>
+            <form className="EditForm" onSubmit={((e) => handleRosterEdit(e, team, currentRoster))}>
                 <label className="EditLabel">
                     Edit Roster:
                     <input className="EditPlayers" type="text" name="currentRoster" onChange={changeRoster} value={currentRoster} />

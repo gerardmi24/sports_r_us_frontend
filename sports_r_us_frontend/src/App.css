@@ -68,7 +68,7 @@ body {
   font-weight: bold;
   background-color: gold;
   color: black;
-  position:relative; top: 195px; margin-left: 40px;
+  position:relative; top: 195px; margin-left: 35px;
   width: 17%;
   height: 30px;
   border: 7px solid gold;
@@ -151,17 +151,20 @@ body {
   font-weight: bold;
   color: black;
   background-color: gold;
-  position:relative; margin-left: 2em; bottom: 1em;
+  position:relative; margin-left: 2em; bottom: 5px;
 }
 
 .EditLabel {
-  margin-right: 30px;
-  margin:2em;
+  margin: 2em;
 }
 
 .EditPlayers {
   width: 30%;
   margin-left: 15px;
+}
+
+.EditForm {
+  position:relative; top: 13px;
 }
 
 .FormSubmit {
@@ -190,7 +193,7 @@ body {
   font-weight: bold;
   background-color: gold;
   color: black;
-  position:relative; bottom: 140px; margin-left: 1200px;
+  position:relative; bottom: 115px; margin-left: 1300px;
   width: 17%;
   height: 30px;
   border: 7px solid gold;
