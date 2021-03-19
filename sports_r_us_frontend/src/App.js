@@ -74,6 +74,7 @@ function App() {
   function homePage(e) {
     setGoHomePage(!goHomePage)
   }
+  
 
   function changeSignIn(e) {
     setSignedIn(!signedIn)
